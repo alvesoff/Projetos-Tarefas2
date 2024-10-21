@@ -1,0 +1,364 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+* {
+    margin: 0; /* Remove todas as margens padrão */
+    padding: 0; /* Remove todos os paddings padrão */
+    box-sizing: border-box; /* Inclui padding e borda no cálculo da largura e altura */
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+:root {
+    --background: #1e1c1f; /* Define a cor de fundo principal */
+    --secondaryBackground: #000000; /* Define a cor de fundo secundária */
+    --text: #fff; /* Define a cor do texto */
+    --purple: #4c57ee; /* Define a cor roxa */
+    --teal: #00e745; /* Define a cor teal */
+    --completedCheckbox: #28a745; /* Cor para o checkbox concluído */
+}
+
+body {
+    background-color: var(--background); /* Aplica a cor de fundo ao corpo da página */
+    color: var(--text); /* Aplica a cor do texto ao corpo da página */
+}
+
+.container {
+    display: flex; /* Define o container como flexbox */
+    flex-direction: column; /* Alinha os itens em coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: center; /* Centraliza os itens verticalmente */
+    margin: 120px auto 0 auto; /* Define a margem superior e centraliza horizontalmente */
+    max-width: 500px; /* Define a largura máxima do container */
+}
+
+.stats-container {
+    padding: 30px; /* Adiciona padding ao container de estatísticas */
+    border-radius: 20px; /* Arredonda os cantos do container */
+    border: 2px solid var(--purple); /* Adiciona uma borda roxa */
+    display: flex; /* Define o container como flexbox */
+    justify-content: space-between; /* Distribui o espaço entre os itens */
+    gap: 50px; /* Adiciona espaço entre os itens */
+    width: 100%; /* Define a largura do container */
+}
+
+.details {
+    width: 100%; /* Define a largura do container de detalhes */
+}
+
+ul, ol {
+    list-style-type: none; /* Remove os pontos ou números da lista */
+    padding: 0; /* Remove o padding padrão */
+    margin: 0; /* Remove a margem padrão */
+}
+
+
+#progressBar {
+    width: 100%; /* Define a largura da barra de progresso */
+    height: 10px; /* Define a altura da barra de progresso */
+    background-color: var(--secondaryBackground); /* Define a cor de fundo da barra de progresso */
+    border-radius: 5px; /* Arredonda os cantos da barra de progresso */
+    margin-top: 20px; /* Adiciona margem superior à barra de progresso */
+}
+
+#progress {
+    width: 0%; /* Define a largura inicial do progresso */
+    height: 10px; /* Define a altura do progresso */
+    background-color: var(--teal); /* Define a cor do progresso */
+    border-radius: 10px; /* Arredonda os cantos do progresso */
+    transition: all 0.3s ease; /* Adiciona uma transição suave ao progresso */
+}
+
+#numbers {
+    width: 100px; /* Define a largura do círculo de números */
+    height: 100px; /* Define a altura do círculo de números */
+    background-color: var(--purple); /* Define a cor de fundo do círculo de números */
+    display: flex; /* Define o círculo como flexbox */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    border-radius: 50%; /* Torna o círculo redondo */
+    font-size: 30px; /* Define o tamanho da fonte */
+    font-weight: bold; /* Define o peso da fonte */
+}
+
+form {
+    margin-top: 25px; /* Adiciona margem superior ao formulário */
+    width: 100%; /* Define a largura do formulário */
+    display: flex; /* Define o formulário como flexbox */
+    gap: 10px; /* Adiciona espaço entre os itens do formulário */
+}
+
+input {
+    flex: 1; /* Faz o input ocupar o espaço disponível */
+    padding: 16px; /* Adiciona padding ao input */
+    background: var(--secondaryBackground); /* Define a cor de fundo do input */
+    border: 1px solid var(--purple); /* Define a borda do input */
+    border-radius: 10px; /* Arredonda os cantos do input */
+    outline: none; /* Remove o contorno padrão do input */
+    color: var(--text); /* Define a cor do texto do input */
+}
+
+button {
+    width: 50px; /* Define a largura do botão */
+    height: 50px; /* Define a altura do botão */
+    border-radius: 50%; /* Torna o botão redondo */
+    display: flex; /* Define o botão como flexbox */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    background-color: var(--purple); /* Define a cor de fundo do botão */
+    color: var(--text); /* Define a cor do texto do botão */
+    font-size: 30px; /* Define o tamanho da fonte do botão */
+    font-weight: bold; /* Define o peso da fonte do botão */
+    outline: none; /* Remove o contorno padrão do botão */
+    border: none;
+    cursor: pointer;
+}
+
+.filter-buttons {
+    display: flex; /* Define o contêiner como flexbox */
+    justify-content: center; /* Centraliza os botões horizontalmente */
+    gap: 20px; /* Adiciona mais espaço entre os botões */
+    margin-top: 20px; /* Adiciona margem superior */
+}
+
+.filter-btn {
+    padding: 5px 75px; /* Adiciona padding aos botões */
+    border: 1px solid var(--purple); /* Define a borda dos botões */
+    border-radius: 5px; /* Arredonda os cantos dos botões */
+    background-color: var(--secondaryBackground); /* Define a cor de fundo dos botões */
+    color: var(--text); /* Define a cor do texto dos botões */
+    cursor: pointer; /* Adiciona um cursor pointer */
+    transition: background-color 0.3s ease; /* Adiciona uma transição suave */
+    white-space: nowrap; /* Impede que o texto quebre para uma nova linha */
+    font-size: 19px; /* Diminui o tamanho do texto */
+}
+
+.filter-btn:hover {
+    background-color: var(--purple); /* Muda a cor de fundo ao passar o mouse */
+}
+
+
+#task-list {
+    display: flex; /* Define a lista de tarefas como flexbox */
+    flex-direction: column; /* Alinha os itens em coluna */
+    gap: 10px; /* Adiciona espaço entre os itens */
+    margin-top: 30px; /* Adiciona margem superior à lista de tarefas */
+    width: 100%; /* Define a largura da lista de tarefas */
+    list-style-type: none; /* Remove os marcadores da lista */
+}
+
+.taskItem {
+    width: 500px; /* Define a largura do item de tarefa */
+    display: flex; /* Define o item de tarefa como flexbox */
+    background-color: var(--secondaryBackground); /* Define a cor de fundo do item de tarefa */
+    padding: 10px; /* Adiciona padding ao item de tarefa */
+    border-radius: 10px; /* Arredonda os cantos do item de tarefa */
+    justify-content: space-between; /* Distribui o espaço entre os itens */
+    align-items: center;
+    margin-top: 10px;
+
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.task input {
+    height: 20px;
+}
+.completed p{
+    text-decoration: line-through;
+    color: #720000
+} 
+.taskItem img {
+    width: 24px;
+    height: 24px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+/* Estilos para checkbox concluído */
+.checkbox:checked {
+    accent-color: var(--completedCheckbox); /* Fundo verde para checkbox */
+}
+
+/* Estilos para a categoria */
+.category {
+    font-size: 15px;
+    color: var(--purple);
+    margin-left: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: normal;
+    
+}
+
+/* Estiliza o contêiner do select */
+select {
+    width: auto; /* Ajusta a largura do select automaticamente */
+    padding: 8px; /* Adiciona padding ao select */
+    border: 1px solid var(--purple); /* Define a borda do select */
+    border-radius: 10px; /* Arredonda os cantos do select */
+    background-color: var(--secondaryBackground); /* Define a cor de fundo do select */
+    color: var(--text); /* Define a cor do texto do select */
+    font-size: 16px; /* Define o tamanho da fonte */
+    appearance: none; /* Remove o estilo padrão do select */
+    -webkit-appearance: none; /* Remove o estilo padrão do select no Safari */
+    -moz-appearance: none; /* Remove o estilo padrão do select no Firefox */
+    cursor: pointer; /* Adiciona um cursor pointer */
+}
+
+/* Adiciona uma seta personalizada ao select */
+select::after {
+    content: '▼'; /* Adiciona uma seta */
+    position: absolute; /* Posiciona a seta */
+    right: 10px; /* Define a posição à direita */
+    top: 50%; /* Centraliza verticalmente */
+    transform: translateY(-50%); /* Ajusta a posição vertical */
+    pointer-events: none; /* Impede a interação com a seta */
+}
+
+/* Estiliza as opções do select */
+option {
+    background-color: var(--secondaryBackground); /* Define a cor de fundo das opções */
+    color: var(--text); /* Define a cor do texto das opções */
+}
+
+/* Estiliza as opções específicas */
+option[value="TRABALHO"] {
+    background-color: #000430; /* Cor de fundo para Trabalho */
+}
+
+option[value="PESSOAL"] {
+    background-color: #000430; /* Cor de fundo para Pessoal */
+}
+
+option[value="OUTROS"] {
+    background-color: #000430; /* Cor de fundo para Outros */
+}
+
+/* Estiliza a opção selecionada */
+select option:checked {
+    background-color: var(--completedCheckbox); /* Cor de fundo para a opção selecionada */
+    color: var(--text); /* Cor do texto para a opção selecionada */
+}
+
+/* Temas */
+body.default {
+    --background: #1e1c1f; /* Define a cor de fundo principal */
+    --secondaryBackground: #000000; /* Define a cor de fundo secundária */
+    --text: #fff; /* Define a cor do texto */
+    --purple: #4c57ee; /* Define a cor roxa */
+    --teal: #00e745; /* Define a cor teal */
+    --completedCheckbox: #28a745; /* Cor para o checkbox concluído */
+}
+
+body.dark {
+    --background: #121212;
+    --secondaryBackground: #1e1e1e;
+    --text: #e0e0e0;
+    --purple: #bb86fc;
+    --teal: #03dac6;
+    --completedCheckbox: #03dac6;
+}
+
+body.light {
+    --background: #69f5d2;
+    --secondaryBackground: #e2e2e2;
+    --text: #000000;
+    --purple: #9364d4;
+    --teal: #018786;
+    --completedCheckbox: #018786;
+}
+
+.theme-menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--secondaryBackground);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.theme-menu label {
+    color: var(--text);
+}
+
+.theme-menu select {
+    padding: 5px;
+    border: 1px solid var(--purple);
+    border-radius: 5px;
+    background-color: var(--secondaryBackground);
+    color: var(--text);
+    font-size: 14px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+
+.save-btn {
+    padding: 5px 10px;
+    background-color: var(--purple);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.save-btn:hover {
+    background-color: var(--purple);
+}
+
+
+@media (max-width: 600px) {
+    .container {
+        margin: 60px auto 0 auto;
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .stats-container {
+        gap: 20px;
+    }
+
+    #numbers {
+        width: 80px;
+        height: 80px;
+        font-size: 24px;
+    }
+
+    form {
+        gap: 10px;
+    }
+
+    input, select, button {
+        font-size: 16px;
+    }
+
+    .filter-buttons {
+        gap: 10px;
+    }
+
+    .filter-btn {
+        font-size: 16px;
+        padding: 10px 27px; /* Ajusta o padding para diminuir o comprimento */
+        width: auto; /* Ajusta a largura automaticamente */
+    }
+
+    .taskItem {
+        align-items: flex-start;
+        width: 100%; /* Ajusta a largura para ocupar 100% do contêiner */
+        max-width: 380px;
+        min-width: 380px;
+    }
+
+    .taskItem img {
+        width: 20px;
+        height: 20px;
+    }
+}

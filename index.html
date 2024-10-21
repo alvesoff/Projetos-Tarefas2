@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/OIP.jpg" type="image/x-icon">
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="theme-menu">
+        <label for="theme">Tema:</label>
+        <select id="theme">
+            <option value="default">Escuro</option>
+            <option value="dark">Padrão</option>
+            <option value="light">Claro</option>
+        </select>
+    </div>
+    <div class="container">
+        <div class="stats-container">
+            <div class="details">
+                <h1>Lista Tarefas</h1>
+                <p>Continue Assim!</p>
+                <div id="progressBar">
+                    <div id="progress"></div>
+                </div>
+            </div>
+            <div class="stats-numbers">
+                <p id="numbers">0 / 0</p>
+            </div>
+        </div>
+
+        <form action="">
+            <input type="text" id="taskInput" placeholder="Escreva Sua Tarefa" oninput="limitCharacters(this, 20)">
+            <select id="categoryInput">
+                <option value="Trabalho">TRABALHO</option>
+                <option value="Pessoal">PESSOAL</option>
+                <option value="Outros">OUTROS</option>
+            </select>
+            <button id="newTask" style="font-family: Arial, sans-serif;" type="submit">+</button>
+
+        </form>
+        
+        <script>
+        function limitCharacters(input, maxLength) {
+    if (input.value.length > maxLength) {
+        alert(`O máximo de caracteres permitido é ${maxLength}.`);
+        input.value = input.value.slice(0, maxLength);
+    }
+}
+
+        </script>
+        
+        <div class="filter-buttons">
+            <button id="allTasks" class="filter-btn">Todas</button>
+            <button id="pendingTasks" class="filter-btn">Pendentes</button>
+            <button id="completedTasks" class="filter-btn">Concluidas</button>
+        </div>
+
+        <ul class="task-list"></ul>
+    </div>
+    <script src="./app.js"></script>
+</body>
+</html>
